@@ -9,8 +9,23 @@ This is done thanks to three components, IceCast2 as the server. And EZStream an
 Installation and configuration instructions are written for Ubuntu Server.
 
 ```bash
-sudo apt update
-sudo apt install icecast2 ezstream ffmpeg
+sudo su
+apt update
+apt install icecast2 ezstream ffmpeg git
+git clone https://github.com/Renaud11232/icecast-autodj.git
+cp /etc/icecast2/icecast.xml /etc/icecast2/icecast.bcp.xml
+cp configs/icecast.xml /etc/icecast2/icecast.xml
+vi /etc/icecast2/incecast.xml #Edit to your needs
+mkdir -p /etc/ezstream
+cp configs/ezstream.xml /etc/ezstream/ezstream.xml
+vi /etc/ezstream/ezstream.xml #Edit to your needs
+vi /etc/ezstream/playlist.m3u #One file per line
+cp systemd/ezstream.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable icecast2
+systemctl enable ezstream
+systemctl start icecast2
+systemctl start ezstream
 ```
 
 ## Configuration
