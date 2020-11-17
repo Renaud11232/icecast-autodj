@@ -2,7 +2,7 @@
 
 This repository explains the process of creating and configuring a webradio server with the ability to continuously stream a playlist (AutoDJ) and also support live performence, if needed.
 
-This is done thanks to three components, IceCast2 as the server. And EZStream and ffmpeg fot the AutoDJ.
+This is done thanks to three components, IceCast2 as the server. And EZStream and  for the AutoDJ.
 
 ## Installation
 
@@ -11,15 +11,21 @@ Installation and configuration instructions are written for Ubuntu Server.
 ```bash
 sudo su
 apt update
-apt install icecast2 ezstream ffmpeg git
+apt install icecast2 ezstream madplay lame git
 git clone https://github.com/Renaud11232/icecast-autodj.git
-cp /etc/icecast2/icecast.xml /etc/icecast2/icecast.bcp.xml
+mv /etc/icecast2/icecast.xml /etc/icecast2/icecast.bcp.xml
 cp configs/icecast.xml /etc/icecast2/icecast.xml
 vi /etc/icecast2/incecast.xml #Edit to your needs
 mkdir -p /etc/ezstream
-cp configs/ezstream.xml /etc/ezstream/ezstream.xml
+
+cp configs/ezstream.v0.xml /etc/ezstream/ezstream.xml
+#or depending on your ezstream version
+cp configs/ezstream.v1.xml /etc/ezstream/ezstream.xml
+
 vi /etc/ezstream/ezstream.xml #Edit to your needs
 vi /etc/ezstream/playlist.m3u #One file per line
+chown -R icecast2:icecast /etc/ezstream
+chmod 600 /etc/ezstream/ezstream.xml
 cp systemd/ezstream.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable icecast2
@@ -41,7 +47,9 @@ The provided configuration file creates creates 3 mountpoints :
 
 ### EZStream
 
-The provided configuration makes EZStream stream as a source on a local IceCast server on the `/autodj` mountpoint. It will play continuously a playlist in a random order. It's alsso set up so it will reencode mp3 while streaming using `ffmpeg`. That way the stream bitrate will stay arround 160kb/s.
+The provided configuration makes EZStream stream as a source on a local IceCast server on the `/autodj` mountpoint. It will play continuously a playlist in a random order. It's alsso set up so it will reencode mp3 while streaming using `madplay` and `lame`. That way the stream bitrate will stay arround 128kb/s.
+
+These configurations are available for ezstream versions prior to v1.0 and for v1.0 and later.
 
 ## Operating
 

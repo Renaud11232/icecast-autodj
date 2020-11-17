@@ -24,8 +24,8 @@
                 <encdec>
                         <format>MP3</format>
                         <match>.mp3</match>
-                        <decode>ffmpeg -loglevel quiet -i "@T@" -f s16le -acodec pcm_s16le -ac 2 -ar 44100 -</decode>
-                        <encode>ffmpeg -loglevel quiet -f s16le -ac 2 -ar 44100 -i pipe:0 -acodec libmp3lame -qscale:a 4 -f mp3 -</encode>
+                        <decode>madplay --very-quiet -b 16 -R 44100 -S -o raw:- @T@</decode>
+                        <encode>lame --quiet --preset cbr 128 -r -s 44.1 --bitwidth 16 - -</encode>
                 </encdec>
         </reencode>
 </ezstream>
