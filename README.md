@@ -2,7 +2,7 @@
 
 This repository explains the process of creating and configuring a webradio server with the ability to continuously stream a playlist (AutoDJ) and also support live performence, if needed.
 
-This is done thanks to three components, IceCast2 as the server. And EZStream and  for the AutoDJ.
+This is done thanks to two main components, IceCast2 as the server. And EZStream for the AutoDJ.
 
 ## Installation
 
@@ -13,6 +13,7 @@ sudo su
 apt update
 apt install icecast2 ezstream madplay lame git
 git clone https://github.com/Renaud11232/icecast-autodj.git
+cd icecast-autodj
 mv /etc/icecast2/icecast.xml /etc/icecast2/icecast.bcp.xml
 cp configs/icecast.xml /etc/icecast2/icecast.xml
 vi /etc/icecast2/incecast.xml #Edit to your needs
