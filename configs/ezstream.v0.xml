@@ -24,7 +24,7 @@
                 <encdec>
                         <format>MP3</format>
                         <match>.mp3</match>
-                        <decode>madplay --very-quiet -b 16 -R 44100 -S -o raw:- @T@</decode>
+                        <decode>madplay --very-quiet -b 16 -R 44100 -S -o raw:- "@T@"</decode>
                         <encode>lame --quiet --preset cbr 128 -r -s 44.1 --bitwidth 16 - -</encode>
                 </encdec>
         </reencode>
