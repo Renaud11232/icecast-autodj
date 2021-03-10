@@ -55,6 +55,6 @@ These configurations are available for ezstream versions prior to v1.0 and for v
 ## Operating
 
 There are 3 scripts you can use to interract with the server without restarting it.
-* `refresh_playlist` will signal EZStream to reread it's playlist and start playing the new playlist after the current song.
+* `refresh_playlist` will signal EZStream to reread its playlist and start playing the new playlist after the current song.
 * `reread_metadata` triggers rereading of metadata for the stream by running the program or script specified in `<metadata_progname/>`
 * `skip_current_track` will signal EZStream to skip the current track.
