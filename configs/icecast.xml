@@ -176,22 +176,6 @@
 
     <mount type="normal">
         <mount-name>/stream</mount-name>
-        <fallback-mount>/live</fallback-mount>
-        <fallback-override>1</fallback-override>
-        <public>0</public>
-    </mount>
-
-    <mount type="normal">
-        <mount-name>/live</mount-name>
-        <password>livepassword</password>
-        <fallback-mount>/autodj</fallback-mount>
-        <fallback-override>1</fallback-override>
-        <public>0</public>
-    </mount>
-
-    <mount type="normal">
-        <mount-name>/autodj</mount-name>
-        <password>autodjpassword</password>
         <public>0</public>
     </mount>
 
