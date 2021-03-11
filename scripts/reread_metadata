@@ -1,5 +1,0 @@
-#!/bin/bash
-USER=icecast2
-GROUP=icecast
-EZSTREAM_PID=$(pgrep -u $USER -G $GROUP ezstream)
-kill -SIGUSR2 $EZSTREAM_PID
