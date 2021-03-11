@@ -16,7 +16,7 @@ git clone https://github.com/Renaud11232/icecast-autodj.git
 cd icecast-autodj
 mv /etc/icecast2/icecast.xml /etc/icecast2/icecast.bcp.xml
 cp configs/icecast.xml /etc/icecast2/icecast.xml
-vi /etc/icecast2/incecast.xml #Edit to your needs
+vi /etc/icecast2/icecast.xml #Edit to your needs
 mkdir -p /etc/ezstream
 
 cp configs/ezstream.v0.xml /etc/ezstream/ezstream.xml
