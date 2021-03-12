@@ -14,10 +14,12 @@ live = input.harbor(
   user="source"
 )
 
-radio = fallback(
+source_chain = fallback(
   track_sensitive=false,
   [live, autodj, silence]
 )
+
+radio = nrj(source_chain)
 
 output.icecast(
   %mp3(
